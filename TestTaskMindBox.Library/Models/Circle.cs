@@ -1,4 +1,3 @@
-using System.Net.NetworkInformation;
 using TestTaskMindBox.Interfaces;
 
 namespace TestTaskMindBox.Models;
@@ -9,7 +8,7 @@ public class Circle : ICalculateArea
 
     public Circle(double radius)
     {
-        _radius = radius;
+        _radius = radius > 0 ? radius : throw new ArgumentException("radius cannot be less than zero");
     }
 
     public double CalculateArea()
